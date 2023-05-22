@@ -1,0 +1,17 @@
+div{
+    color:red;
+    font-weight:bold;
+    font-size:2rem;
+    line-height:2;
+    text-indent:1rem;
+}
+
+div h1{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-weight:300;
+    color:blue;
+    font-style:italic;
+    font-size:10rem;
+    text-align:center;
+    text-decoration:line-through dotted;
+}

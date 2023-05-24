@@ -6,22 +6,27 @@ const CONTENT2 = document.getElementById('content2');
 
 function EventHandler(event){
     event.preventDefault();
-    const MaxNumber = parseInt(INPUT_MAX_NUM.value);
-    localStorage.setItem("MaxNumber",MaxNumber); //실시간으로 범위값 localStorage에 업데이트
-
-    const GuessNumber = parseInt(INPUT_GUESS_NUM.value);
+    const maxNum = INPUT_MAX_NUM.value;
+    const guessNum = INPUT_GUESS_NUM.value;
+    const MaxNumber = parseInt(maxNum);
+    const GuessNumber = parseInt(guessNum);
     const RANDOM_NUMBER = Math.ceil(Math.random()*MaxNumber);
+    // localStorage.setItem("MaxNumber",MaxNumber); //실시간으로 범위값 localStorage에 업데이트
+    if (maxNum === "" && guessNum === "") {
+        CONTENT2.innerText = "";
+        CONTENT.style.color = "red";
+        CONTENT.innerHTML = "<strong>Please select Number!</strong>";
+        return;
+    }
 
-    console.log("You chose:"+GuessNumber);
-    console.log("machine chose:"+RANDOM_NUMBER);
-
+    CONTENT.style.color = "black";
     CONTENT.innerHTML ="You chose:"+GuessNumber+", the machine chose:"+RANDOM_NUMBER+".";
 
-    if(GuessNumber === RANDOM_NUMBER){
-        CONTENT2.innerHTML ="You won!";
-    }else{
-        CONTENT2.innerHTML ="You lost!";
-    }
+        if(GuessNumber === RANDOM_NUMBER){
+            CONTENT2.innerHTML ="<strong>You won!</strong>";
+        }else{
+            CONTENT2.innerHTML ="<strong>You lost!</strong>";
+        }
     
 }   
 
